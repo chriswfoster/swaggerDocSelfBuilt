@@ -11,13 +11,36 @@
   "host": "petstore.swagger.io",
   "basePath": "/v2",
   "tags": [
-    { "name": "pet", "description": "Everything about your Pets", "externalDocs": { "description": "Find out more", "url": "http://swagger.io" } },
-    { "name": "store", "description": "Access to Petstore orders" },
-    { "name": "user", "description": "Operations about user", "externalDocs": { "description": "Find out more about our store", "url": "http://swagger.io" } }
+    { "name": "first", "description": "Description text by chriswf", "externalDocs": { "description": "Clicky clicky dis link", "url": "https://www.google.com" } },
+    { "name": "second", "description": "Stuff for the 2nd tag" },
+    { "name": "third", "description": "Operations about 3rd tag", "externalDocs": { "description": "Find out more about our store", "url": "http://swagger.io" } }
   ],
   "schemes": ["https", "http"],
   "paths": {
-    "/pet/{petId}/uploadImage": {
+    "/first": {
+        "get": {
+            "tags": ["first"],
+            "summary": "Get all first",
+            "description": "Get all first",
+            "operationId": "getAllFirst",
+            "produces": ["application/json"],
+            "responses": {
+                "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/Pet"
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid status value"
+                }
+            }
+        }
+    },
+    "/first/{id}/uploadImage": {
       "post": {
         "tags": ["pet"],
         "summary": "uploads an image",
